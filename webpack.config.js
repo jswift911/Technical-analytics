@@ -16,7 +16,6 @@ module.exports = {
       assets: path.resolve(__dirname, 'src', 'assets'),
       controllers: path.resolve(__dirname, 'src', 'controllers'),
       templates: path.resolve(__dirname, 'src', 'templates'),
-      images: path.resolve(__dirname, 'src', 'img'),
       actions: path.resolve(__dirname, 'src', 'actions'),
       reducers: path.resolve(__dirname, 'src', 'reducers'),
     }
