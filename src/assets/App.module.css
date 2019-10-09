@@ -1,0 +1,26 @@
+html {
+  font-family: 'Open Sans', sans-serif;
+  color: var(--font-color);
+}
+body {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+  background-color: var(--main-color);
+}
+
+.gridContainer {
+  display: grid;
+  grid-template-columns: 20vw 60vw 20vw;
+  grid-template-rows: 1fr;
+  grid-template-areas: "aside content right-aside";
+  height: calc(100vh - 20vh);
+  overflow-x: hidden;
+  overflow-y: scroll;
+  margin-top: 1em;
+  box-sizing: border-box;
+}
+
+.content {
+  grid-area: content;
+}

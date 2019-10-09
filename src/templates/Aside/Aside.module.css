@@ -1,0 +1,15 @@
+.leftAside {
+  grid-area: aside;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+}
+.nav {
+  margin: 2em 0 0 2em;
+}
+.li {
+  line-height: 2;
+}
+.selected {
+  font-weight: bold;
+}

@@ -1,0 +1,44 @@
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100vw;
+  height: 10vh;
+  background-color: #374859;
+  padding: 0 10em;
+}
+.buttons-wrapper a:not(:last-child) {
+  margin-right: 0.5em;
+}
+/*.btn {*/
+/*  font-family: "Roboto", sans-serif;*/
+/*  text-transform: uppercase;*/
+/*  outline: 0;*/
+/*  background: var(--link-color);*/
+/*  width: 100%;*/
+/*  border: 0;*/
+/*  padding: 15px;*/
+/*  color: var(--font-color);*/
+/*  font-size: 14px;*/
+/*  cursor: pointer;*/
+/*  text-decoration: none;*/
+/*}*/
+
+.btn {
+  composes: linkBgc from "../../assets/vars.css";
+  composes: fontColor from "../../assets/vars.css";
+  font-family: "Roboto", sans-serif;
+  text-transform: uppercase;
+  outline: 0;
+  /*background: var(--link-color);*/
+  width: 100%;
+  border: 0;
+  padding: 15px;
+  /*color: var(--font-color);*/
+  font-size: 14px;
+  cursor: pointer;
+  text-decoration: none;
+  margin-right: 0.5em;
+}

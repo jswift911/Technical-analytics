@@ -1,0 +1,22 @@
+ /*Colors*/
+:root {
+    --main-color: #374859;
+    --link-color: #73cff8;
+    --font-color: #fff;
+}
+
+.mainBgc {
+    color: #374859;
+}
+.mainColor {
+    color: #374859;
+}
+.linkColor {
+    color: #73cff8;
+}
+.linkBgc {
+    background-color: #73cff8;
+}
+.fontColor {
+    color: #fff;
+}
