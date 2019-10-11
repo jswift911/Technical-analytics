@@ -25,10 +25,10 @@ export class Header extends Component {
       <header className={style.header}>
         <div>LOGO</div>
         <div className={style.buttonsWrapper}>
-          <Link onClick={this.handleLogin} to={isLoggedIn ? '/' : '/login'} className={style.btn}>
+          <Link onClick={this.handleLogin} to={isLoggedIn ? '/' : '/login'} className={style.btnSignIn}>
             {isLoggedIn ? 'Sign out' : 'Sign in'}
           </Link>
-          <Link onClick={this.handleLogin} to={isLoggedIn ? '/' : '/login'} className={style.btn}>
+          <Link onClick={this.handleLogin} to={isLoggedIn ? '/' : '/login'} className={style.btnSignIn}>
             Sign up
           </Link>
         </div>
