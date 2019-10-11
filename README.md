@@ -11,3 +11,68 @@ $ npm i
 ```bash
 $ npm start
 ``` 
+
+#### Описание API:
+Сервер доступен по адресу [https://arcane-eyrie-30150.herokuapp.com](https://arcane-eyrie-30150.herokuapp.com)
+
+Ко всем запросам обязателен заголовок __Content-Type application/json__.
+
+Ко всем запросам, кроме __POST /user__ и __POST /auth__ обязателен заголовок __Authorization Bearer + token__.
+
+* Регистрация нового пользователя _POST /user_: 
+
+  В body запроса необходимо передать данные типа
+```json
+{
+    "firstName": "Keka",
+    "lastName": "Keka",
+    "email": "keka@keka.com",
+    "password": "qwerty",
+    "organization": "home"
+}
+```
+   Если всё верно, то получите ответ такого плана
+```json
+{
+    "status": "ok",
+    "message": {
+        "id": "5da0b7c7b5b1660004e96c84",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imtla2FAa2VrYS5jb20iLCJpYXQiOjE1NzA4MTM4OTV9.MOKKHBpSAzqvit2Q2ddlqKky8QiBw3nCoylS_bTRRGc"
+    }
+}
+```
+   В противном случае получим одну из подобных ошибок
+```json
+{
+    "status": "error",
+    "message": "Поле электронная почта обязательно для заполнения"
+}
+```
+
+* Авторизация пользователя по логину и паролю _POST /auth_: 
+
+  В body запроса необходимо передать данные типа
+```json
+{
+    "email": "keka@keka.com",
+    "password": "qwerty"
+}
+```
+
+   Если всё верно, то получите ответ такого плана
+```json
+{
+    "status": "ok",
+    "message": {
+        "id": "5da0b7c7b5b1660004e96c84",
+        "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6Imtla2FAa2VrYS5jb20iLCJpYXQiOjE1NzA4MTM4OTV9.MOKKHBpSAzqvit2Q2ddlqKky8QiBw3nCoylS_bTRRGc"
+    }
+}
+```
+   В противном случае получим одну из подобных ошибок
+```json
+{
+    "status": "error",
+    "message": "Пароли не совпадают"
+}
+```
