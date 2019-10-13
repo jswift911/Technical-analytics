@@ -1,0 +1,9 @@
+.regBtn {
+    composes: btn from '../../assets/vars.css';
+}
+.regPage {
+    composes: loginPage from '../../controllers/Auth/Auth.module.css';
+}
+.form {
+    composes: form from '../../controllers/Auth/Auth.module.css';
+}
