@@ -6,9 +6,13 @@
 }
 .nav {
   margin: 2em 0 0 2em;
+  display: flex;
+  flex-direction: column;
 }
-.li {
+.link {
   line-height: 2;
+  color: var(--link-color);
+  text-decoration: none;
 }
 .selected {
   font-weight: bold;

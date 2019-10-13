@@ -1,19 +1,15 @@
 import style from './Aside.module.css';
 
 import React from 'react';
+import { NavLink } from "react-router-dom";
 
 export const Aside = () => {
 
   return (
     <aside className={style.leftAside}>
       <nav className={style.nav}>
-        <ul>
-          <li className={style.li}>Link</li>
-          <li className={style.li}>Link</li>
-          <li className={style.li}>Link</li>
-          <li className={style.li}>Link</li>
-          <li className={style.li}>Link</li>
-        </ul>
+          <NavLink className={style.link} to={'/'}>Login</NavLink>
+          <NavLink className={style.link} to={'/registration'}>Registration</NavLink>
       </nav>
     </aside>
   );
