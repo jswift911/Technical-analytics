@@ -2,8 +2,8 @@
     composes: btn from '../../assets/vars.css';
 }
 .regPage {
-    composes: loginPage from '../../controllers/Auth/Auth.module.css';
+    composes: loginPage from '../LoginForm/LoginForm.module.css';
 }
 .form {
-    composes: form from '../../controllers/Auth/Auth.module.css';
+    composes: form from '../LoginForm/LoginForm.module.css';
 }

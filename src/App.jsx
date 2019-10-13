@@ -19,7 +19,7 @@ export const App = () => (
       <div className={style.content}>
         <Switch>
           <Route path={'/'} component={Auth} exact />
-          <Route path={'/login'} component={RegForm} exact />
+          <Route path={'/registration'} component={RegForm} exact />
         </Switch>
       </div>
       <RightAside />
