@@ -8,13 +8,13 @@ export class Auth extends Component {
     password: '',
   };
 
-  handleSignIn = () => {
-    alert(`login: ${this.state.username}`)
+  handleSignIn = (u, p) => {
+    console.log(u, p);
   };
 
   render() {
     return (
-        <LoginForm />
+        <LoginForm handleSignIn={this.handleSignIn}/>
     );
   }
 }

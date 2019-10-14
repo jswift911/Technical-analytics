@@ -1,5 +1,5 @@
 import style from './Header.module.css';
-import '../../assets/App.module.css';
+import 'assets/App.module.css';
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
