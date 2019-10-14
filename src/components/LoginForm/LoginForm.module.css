@@ -15,6 +15,7 @@
 }
 .loginBtn {
     composes: btn from "../../assets/vars.css";
+    margin-bottom: 1em;
 }
 .form input {
     font-family: "Roboto", sans-serif;
@@ -26,4 +27,12 @@
     padding: 15px;
     box-sizing: border-box;
     font-size: 14px;
+}
+.form input:focus {
+    border: 0.5px solid var(--link-secondary-color);
+}
+.link {
+    text-decoration: none;
+    font-size: small;
+    color: var(--link-secondary-color);
 }
