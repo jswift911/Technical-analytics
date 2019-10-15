@@ -5,7 +5,9 @@ import { connect } from 'react-redux';
 
 import { LoginForm } from "components/LoginForm/LoginForm";
 import { login } from "actions/auth.action";
+import { Loading } from "components/Loading";
 
+let timer;
 
 class Auth extends Component {
   state = {
@@ -13,6 +15,19 @@ class Auth extends Component {
       password: '',
       error: false,
       errorText: '',
+  };
+
+  componentWillUnmount() {
+      clearTimeout(timer);
+  }
+
+  clearErrors = () => {
+      timer = setTimeout(() => {
+          this.setState({
+              error: false,
+              errorText: '',
+          });
+      }, 3000);
   };
 
   validator = (str, name) => {
@@ -55,21 +70,19 @@ class Auth extends Component {
       if (this.validator(username, 'email') && this.validator(password, 'password')) {
           login(username, password);
       }
+      this.clearErrors();
+
+      if (this.props.user.token) {
+          this.props.history.replace('/');
+      }
   };
 
   render() {
       const { error, errorText } = this.state;
-      if (error) {
-          setTimeout(() => {
-              this.setState({
-                  error: false,
-                  errorText: '',
-              });
-          }, 3000);
-      }
+
     return (
         <Fragment>
-            <LoginForm handleSignIn={this.handleSignIn}/>
+            {this.props.loading ? <Loading/> : <LoginForm handleSignIn={this.handleSignIn}/>}
             {error && <div className={style.errorField}>
                 {errorText}
             </div>}

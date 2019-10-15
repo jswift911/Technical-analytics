@@ -1,4 +1,4 @@
-import './Loading.scss';
+import './Loading.module.css';
 
 import React from 'react';
 

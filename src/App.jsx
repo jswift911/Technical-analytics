@@ -18,7 +18,7 @@ export const App = () => (
       <Aside />
       <div className={style.content}>
         <Switch>
-          <Route path={'/'} component={AuthContainer} exact />
+          <Route path={'/login'} component={AuthContainer} exact />
           <Route path={'/registration'} component={RegForm} exact />
         </Switch>
       </div>

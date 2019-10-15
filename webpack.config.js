@@ -15,9 +15,9 @@ module.exports = {
       components: path.resolve(__dirname, 'src', 'components'),
       assets: path.resolve(__dirname, 'src', 'assets'),
       controllers: path.resolve(__dirname, 'src', 'controllers'),
-      templates: path.resolve(__dirname, 'src', 'templates'),
       actions: path.resolve(__dirname, 'src', 'actions'),
       reducers: path.resolve(__dirname, 'src', 'reducers'),
+      functions: path.resolve(__dirname, 'src', 'functions'),
     }
   },
   module: {
