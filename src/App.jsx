@@ -7,8 +7,8 @@ import { Footer } from 'components/Footer';
 import { Aside } from "components/Aside";
 import { Header } from "controllers/Header";
 import { RightAside } from "components/RightAside";
-import { Auth } from "controllers/Auth";
-import { RegForm}  from "components/RegForm/RegForm";
+import { AuthContainer } from "controllers/Auth";
+import { RegForm }  from "components/RegForm";
 
 
 export const App = () => (
@@ -18,7 +18,7 @@ export const App = () => (
       <Aside />
       <div className={style.content}>
         <Switch>
-          <Route path={'/'} component={Auth} exact />
+          <Route path={'/'} component={AuthContainer} exact />
           <Route path={'/registration'} component={RegForm} exact />
         </Switch>
       </div>

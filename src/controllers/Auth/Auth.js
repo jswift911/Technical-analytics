@@ -1,10 +1,13 @@
-import React, { Component, Fragment } from 'react';
-
-import {LoginForm} from "components/LoginForm/LoginForm";
-import { endpoints } from '../../../endpoints'
 import style from './Auth.module.css';
 
-export class Auth extends Component {
+import React, { Component, Fragment } from 'react';
+import { connect } from 'react-redux';
+
+import { LoginForm } from "components/LoginForm/LoginForm";
+import { login } from "actions/auth.action";
+
+
+class Auth extends Component {
   state = {
       username: '',
       password: '',
@@ -47,24 +50,11 @@ export class Auth extends Component {
   };
 
   handleSignIn = (username, password) => {
-      if (this.validator(username, 'email') && this.validator(password, 'password')) {
-          // const params = new URLSearchParams;
-          // params.append('username', username);
-          // params.append('password', password);
-            fetch(endpoints.auth, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: {
-                    "email": JSON.stringify(username),
-                    "password": JSON.stringify(password)
-                }
-            })
-                .then(data => data.json())
-                .then(result => console.log(result))
-      }
+      const { login } = this.props;
 
+      if (this.validator(username, 'email') && this.validator(password, 'password')) {
+          login(username, password);
+      }
   };
 
   render() {
@@ -87,3 +77,20 @@ export class Auth extends Component {
     );
   }
 }
+
+function mapStateToProps(state) {
+    return {
+        user: state.auth.user,
+        loading: state.auth.loading,
+        error: state.auth.error,
+        errorText: state.auth.errorText,
+    }
+}
+
+function mapDispatchToProps(dispatch) {
+    return {
+        login: (email, pass) => dispatch(login(email, pass)),
+    }
+}
+
+export const AuthContainer = connect(mapStateToProps, mapDispatchToProps)(Auth);
