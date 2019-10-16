@@ -19,6 +19,30 @@ $ npm start
 
 Ко всем запросам, кроме __POST /user__ и __POST /auth__ обязателен заголовок __Authorization Bearer + token__.
 
+Ко всем __POST__ запросам обязателен заголовок __'content-type': 'application/x-www-form-urlencoded'__.
+Соответственно рекомендую данные передавать через экземпляр __new URLSearchParams__, например:
+```javascript
+const params = new URLSearchParams;
+params.append('email', username);
+params.append('password', password);
+params.append('firstName', firstName);
+params.append('lastName', lastName);
+params.append('organization', organization);
+
+axios.post(endpoints.user, params, {
+    headers: {
+        'content-type': 'application/x-www-form-urlencoded'
+    }
+})
+    .then(response => {
+        console.log(response);
+        const { data } = response;
+        dispatch(dataRecieved(data));
+    })
+    .catch(error => dispatch(errorOccured(error)));
+    };
+```
+
 * Регистрация нового пользователя _POST /user_: 
 
   В body запроса необходимо передать данные типа
