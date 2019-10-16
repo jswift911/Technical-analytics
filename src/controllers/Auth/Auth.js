@@ -1,11 +1,10 @@
-import style from './Auth.module.css';
-
 import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { LoginForm } from "components/LoginForm/LoginForm";
 import { login } from "actions/auth.action";
 import { Loading } from "components/Loading";
+import { ErrorField } from "components/ErrorField";
 
 let timer;
 
@@ -32,7 +31,7 @@ class Auth extends Component {
 
   validator = (str, name) => {
       const regExp = /(^\w.*@\w+\.\w)/;
-
+//TODO выровнять по центру текст ошибки
       if (!str) {
           this.setState({
               error: true,
@@ -83,9 +82,9 @@ class Auth extends Component {
     return (
         <Fragment>
             {this.props.loading ? <Loading/> : <LoginForm handleSignIn={this.handleSignIn}/>}
-            {error && <div className={style.errorField}>
+            {error && <ErrorField>
                 {errorText}
-            </div>}
+            </ErrorField>}
         </Fragment>
     );
   }
