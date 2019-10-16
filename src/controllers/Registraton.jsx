@@ -5,7 +5,8 @@ import { RegForm } from "components/RegForm";
 import { ErrorField } from "components/ErrorField";
 import { login } from "actions/auth.action";
 import { Loading } from "components/Loading";
-import { validatorObj } from "functions/validator";
+import { validator } from "functions/validator";
+import { registration } from 'actions/user.action'
 
 let timer;
 
@@ -29,8 +30,8 @@ class Registration extends Component {
     };
 
     handleSubmit = (...args) => {
-        if (validatorObj.apply(this, [...args])) {
-            console.log(...args);
+        if (validator.apply(this, [...args])) {
+            this.props.registration(...args);
         }
         this.clearErrors();
     };
@@ -48,16 +49,17 @@ class Registration extends Component {
 
 function mapStateToProps(state) {
     return {
-        user: state.auth.user,
-        loading: state.auth.loading,
-        error: state.auth.error,
-        errorText: state.auth.errorText,
+        user: state.user.user,
+        loading: state.user.loading,
+        error: state.user.error,
+        errorText: state.user.errorText,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         login: (email, pass) => dispatch(login(email, pass)),
+        registration: (...obj) => dispatch(registration(...obj)),
     }
 }
 

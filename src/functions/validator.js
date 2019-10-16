@@ -1,39 +1,4 @@
-export function validator(str, name) {
-    const regExp = /(^\w.*@\w+\.\w)/;
-//TODO выровнять по центру текст ошибки
-    if (!str) {
-        this.setState({
-            error: true,
-            errorText: `Поле ${name} обязательно для заполнения`,
-        });
-        return false;
-    }
-    if (str && name === 'email' && !regExp.test(str)) {
-        this.setState({
-            error: true,
-            errorText: 'Невалидный email',
-        });
-        return false;
-    }
-    if (str && name === 'email' && regExp.test(str)) {
-        this.setState({
-            error: false,
-            errorText: '',
-        });
-        return true;
-    }
-    if (str && name === 'password' && str.length < 6) {
-        this.setState({
-            error: true,
-            errorText: 'Пароль должен быть длиннее 6-ти символов',
-        });
-        return false;
-    }
-
-    return true;
-}
-
-export function validatorObj(obj) {
+export function validator(obj) {
     const regExp = /(^\w.*@\w+\.\w)/;
     for (let key in obj) {
         if (obj[key].length === 0) {

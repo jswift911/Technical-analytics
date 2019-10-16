@@ -6,7 +6,7 @@ import { login } from "actions/auth.action";
 import { Loading } from "components/Loading";
 import { ErrorField } from "components/ErrorField";
 import { Redirect } from "react-router-dom";
-import { validatorObj } from "functions/validator";
+import { validator} from "functions/validator";
 //TODO убрать глобальную переменную и сделать валидацию на лету
 let timer;
 
@@ -38,7 +38,7 @@ class Auth extends Component {
   handleSignIn = (...obj) => {
       const { login } = this.props;
 console.log(...obj);
-      if (validatorObj.apply(this, [...obj])) {
+      if (validator.apply(this, [...obj])) {
           login(obj[0].username, obj[0].password);
       }
       this.clearErrors();
