@@ -10,6 +10,12 @@ export const RegForm = (props) => {
     const [ lastName, setLastName ] = useState('');
     const [ organization, setOrganization ] = useState('');
 
+    const handleSubmit = () => {
+        props.handleSubmit({username, password, repeatPassword, firstName, lastName, organization});
+        setPassword('');
+        setRepeatPassword('');
+    };
+
     return (
         <div className={style.regPage}>
             <div className={style.form}>
@@ -26,7 +32,7 @@ export const RegForm = (props) => {
                            placeholder="last name" value={lastName} />
                     <input onChange={event => setOrganization(event.target.value)} name="organization" type="text"
                            placeholder="organization" value={organization} />
-                    <button className={style.regBtn} >Send</button>
+                    <button className={style.regBtn} onClick={() => handleSubmit()}>Send</button>
                 </div>
             </div>
         </div>

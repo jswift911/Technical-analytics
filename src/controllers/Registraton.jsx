@@ -4,9 +4,10 @@ import {connect} from "react-redux";
 import { RegForm } from "components/RegForm";
 import { ErrorField } from "components/ErrorField";
 import { login } from "actions/auth.action";
-import {Loading} from "components/Loading";
+import { Loading } from "components/Loading";
+import { validatorObj } from "functions/validator";
 
-
+let timer;
 
 class Registration extends Component {
     state = {
@@ -14,11 +15,31 @@ class Registration extends Component {
         errorText: '',
     };
 
+    componentWillUnmount() {
+        clearTimeout(timer);
+    }
+
+    clearErrors = () => {
+        timer = setTimeout(() => {
+            this.setState({
+                error: false,
+                errorText: '',
+            });
+        }, 3000);
+    };
+
+    handleSubmit = (...args) => {
+        if (validatorObj.apply(this, [...args])) {
+            console.log(...args);
+        }
+        this.clearErrors();
+    };
+
     render() {
         const { error, errorText } = this.state;
         return(
             <Fragment>
-                {this.props.loading ? <Loading/> : <RegForm />}
+                {this.props.loading ? <Loading/> : <RegForm handleSubmit={this.handleSubmit} />}
                 {error && <ErrorField>{errorText}</ErrorField>}
             </Fragment>
         );
