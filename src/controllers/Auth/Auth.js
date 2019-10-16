@@ -5,7 +5,8 @@ import { LoginForm } from "components/LoginForm/LoginForm";
 import { login } from "actions/auth.action";
 import { Loading } from "components/Loading";
 import { ErrorField } from "components/ErrorField";
-
+import { Redirect } from "react-router-dom";
+//TODO убрать глобальную переменную и сделать валидацию на лету
 let timer;
 
 class Auth extends Component {
@@ -70,23 +71,23 @@ class Auth extends Component {
           login(username, password);
       }
       this.clearErrors();
-
-      if (this.props.user.token) {
-          this.props.history.replace('/');
-      }
   };
 
   render() {
       const { error, errorText } = this.state;
-
-    return (
-        <Fragment>
-            {this.props.loading ? <Loading/> : <LoginForm handleSignIn={this.handleSignIn}/>}
-            {error && <ErrorField>
-                {errorText}
-            </ErrorField>}
-        </Fragment>
-    );
+      const isLoggedIn = this.props.user.hasOwnProperty('token');
+      if (isLoggedIn) {
+          return <Redirect to={'/'} />
+      } else {
+          return (
+              <Fragment>
+                  {this.props.loading ? <Loading/> : <LoginForm handleSignIn={this.handleSignIn}/>}
+                  {error && <ErrorField>
+                      {errorText}
+                  </ErrorField>}
+              </Fragment>
+          );
+      }
   }
 }
 

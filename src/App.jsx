@@ -5,7 +5,7 @@ import {Switch, Route } from 'react-router-dom';
 
 import { Footer } from 'components/Footer';
 import { Aside } from "components/Aside";
-import { Header } from "controllers/Header";
+import { HeaderContainer } from "controllers/Header";
 import { RightAside } from "components/RightAside";
 import { AuthContainer } from "controllers/Auth";
 import {RegistrationContainer} from "controllers/Registraton";
@@ -13,7 +13,7 @@ import {RegistrationContainer} from "controllers/Registraton";
 
 export const App = () => (
   <div>
-    <Header/>
+    <HeaderContainer />
     <main className={style.gridContainer}>
       <Aside />
       <div className={style.content}>

@@ -5,6 +5,7 @@ import {endpoints} from "../../endpoints";
 export const loadStart = createAction('[Auth] Load start');
 export const dataRecieved = createAction('[Auth] Data recieved');
 export const errorOccured = createAction('[Auth] Error occured');
+export const logout = createAction('[Auth] Logout');
 
 export const login = (username, password) => (dispatch) => {
 

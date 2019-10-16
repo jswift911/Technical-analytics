@@ -1,6 +1,6 @@
 import { handleActions } from 'redux-actions';
 
-import { loadStart, dataRecieved, errorOccured } from 'actions/auth.action';
+import {loadStart, dataRecieved, errorOccured, logout} from 'actions/auth.action';
 
 const initialState = {
     loading: false,
@@ -10,6 +10,15 @@ const initialState = {
 };
 
 export const reducer = handleActions({
+    [logout]: (state) => {
+        return {
+            loading: false,
+            error: false,
+            errorText: '',
+            user: {},
+            isLoggedIn: false,
+        }
+    },
     [loadStart]: (state) => {
         return {
             ...state,
@@ -23,6 +32,7 @@ export const reducer = handleActions({
                 ...state,
                 user: data.message,
                 loading: false,
+                isLoggedIn: true,
             };
         }
     },

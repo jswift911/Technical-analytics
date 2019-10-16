@@ -7,6 +7,7 @@ import { login } from "actions/auth.action";
 import {Loading} from "components/Loading";
 
 
+
 class Registration extends Component {
     state = {
         error: false,
