@@ -1,11 +1,11 @@
-import './Loading.module.css';
+import style from './Loading.module.css';
 
 import React from 'react';
 
 export const Loading = () => {
   return (
-    <div className="loading-wrapper">
-      <div className="lds-roller">
+    <div className={style.loadingWrapper}>
+      <div className={style.ldsRoller}>
         <div />
         <div />
         <div />

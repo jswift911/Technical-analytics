@@ -6,7 +6,7 @@ import { ErrorField } from "components/ErrorField";
 import { login } from "actions/auth.action";
 import { Loading } from "components/Loading";
 import { validator } from "functions/validator";
-import { registration } from 'actions/user.action'
+import { cleanErrors, registration } from 'actions/user.action'
 
 let timer;
 
@@ -34,6 +34,7 @@ class Registration extends Component {
             this.props.registration(...args);
         }
         this.clearErrors();
+        this.props.cleanErrors();
     };
 
     render() {
@@ -42,6 +43,7 @@ class Registration extends Component {
             <Fragment>
                 {this.props.loading ? <Loading/> : <RegForm handleSubmit={this.handleSubmit} />}
                 {error && <ErrorField>{errorText}</ErrorField>}
+                {this.props.error && <ErrorField>{this.props.errorText}</ErrorField>}
             </Fragment>
         );
     }
@@ -60,6 +62,7 @@ function mapDispatchToProps(dispatch) {
     return {
         login: (email, pass) => dispatch(login(email, pass)),
         registration: (...obj) => dispatch(registration(...obj)),
+        cleanErrors: () => dispatch(cleanErrors()),
     }
 }
 

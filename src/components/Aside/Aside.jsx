@@ -8,8 +8,8 @@ export const Aside = () => {
   return (
     <aside className={style.leftAside}>
       <nav className={style.nav}>
-          <NavLink className={style.link} to={'/login'}>Login</NavLink>
-          <NavLink className={style.link} to={'/registration'}>Registration</NavLink>
+          {/*<NavLink className={style.link} to={'/login'}>Login</NavLink>*/}
+          {/*<NavLink className={style.link} to={'/registration'}>Registration</NavLink>*/}
       </nav>
     </aside>
   );
