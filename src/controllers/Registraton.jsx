@@ -6,7 +6,8 @@ import { ErrorField } from "components/ErrorField";
 import { login } from "actions/auth.action";
 import { Loading } from "components/Loading";
 import { validator } from "functions/validator";
-import { cleanErrors, registration } from 'actions/user.action'
+import { cleanErrors, registration } from 'actions/auth.action'
+import { Redirect } from "react-router-dom";
 
 let timer;
 
@@ -39,22 +40,26 @@ class Registration extends Component {
 
     render() {
         const { error, errorText } = this.state;
-        return(
-            <Fragment>
-                {this.props.loading ? <Loading/> : <RegForm handleSubmit={this.handleSubmit} />}
-                {error && <ErrorField>{errorText}</ErrorField>}
-                {this.props.error && <ErrorField>{this.props.errorText}</ErrorField>}
-            </Fragment>
-        );
+        const { auth } = this.props;
+        const isLoggedIn = auth.user.hasOwnProperty('token') && auth.user.token;
+
+        if (isLoggedIn) {
+            return <Redirect to={'/'} />;
+        } else {
+            return(
+                <Fragment>
+                    {auth.loading ? <Loading/> : <RegForm handleSubmit={this.handleSubmit} />}
+                    {error && <ErrorField>{errorText}</ErrorField>}
+                    {auth.error && <ErrorField>{auth.errorText}</ErrorField>}
+                </Fragment>
+            );
+        }
     }
 }
 
 function mapStateToProps(state) {
     return {
-        user: state.user.user,
-        loading: state.user.loading,
-        error: state.user.error,
-        errorText: state.user.errorText,
+        ...state
     }
 }
 

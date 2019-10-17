@@ -5,5 +5,4 @@ import { reducer as userReducer } from "reducers/user.reducer";
 
 export const rootReducer = combineReducers({
     auth: authReducer,
-    user: userReducer,
 });

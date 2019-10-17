@@ -9,7 +9,7 @@ import { HeaderContainer } from "controllers/Header";
 import { RightAside } from "components/RightAside";
 import { AuthContainer } from "controllers/Auth";
 import { RegistrationContainer } from "controllers/Registraton";
-import { Main } from "components/Main";
+import { MainContainer } from "components/Main";
 
 
 export const App = () => (
@@ -19,9 +19,9 @@ export const App = () => (
       <Aside />
       <div className={style.content}>
         <Switch>
-          <Route path={'/'} component={Main} exact />
-          <Route path={'/login'} component={AuthContainer} exact />
-          <Route path={'/registration'} component={RegistrationContainer} exact />
+          <Route path={'/'} component={MainContainer} exact />
+          <Route path={'/login'} component={AuthContainer} />
+          <Route path={'/registration'} component={RegistrationContainer} />
         </Switch>
       </div>
       <RightAside />

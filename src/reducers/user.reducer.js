@@ -10,13 +10,7 @@ const initialState = {
 };
 
 export const reducer = handleActions({
-    [clearErrors]: (state) => {
-        return {
-            ...state,
-            error: false,
-            errorText: '',
-        }
-    },
+
     [loadStart]: (state) => {
         return {
             ...state,

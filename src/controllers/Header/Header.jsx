@@ -1,8 +1,9 @@
 import style from './Header.module.css';
-import 'assets/App.module.css';
+
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
+
 import {logout} from "actions/auth.action";
 
 
@@ -25,7 +26,7 @@ class Header extends Component {
 
   render() {
     const { user } = this.props;
-    const isLoggedIn = user.hasOwnProperty('token');
+    const isLoggedIn = user.hasOwnProperty('token') && user.token;
 
     return (
       <header className={style.header}>
@@ -44,8 +45,6 @@ class Header extends Component {
 
 function mapStateToProps(state) {
   return {
-    loading: state.auth.loading,
-    isLoggedIn: state.auth.isLoggedIn,
     user: state.auth.user,
   }
 }

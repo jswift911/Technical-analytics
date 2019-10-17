@@ -2,7 +2,7 @@ import React, { Component, Fragment } from 'react';
 import { connect } from 'react-redux';
 
 import { LoginForm } from "components/LoginForm/LoginForm";
-import { login } from "actions/auth.action";
+import {cleanErrors, login} from "actions/auth.action";
 import { Loading } from "components/Loading";
 import { ErrorField } from "components/ErrorField";
 import { Redirect } from "react-router-dom";
@@ -36,26 +36,27 @@ class Auth extends Component {
   };
 
   handleSignIn = (...obj) => {
-      const { login } = this.props;
+      const { login, cleanErrors } = this.props;
 console.log(...obj);
       if (validator.apply(this, [...obj])) {
           login(obj[0].username, obj[0].password);
       }
       this.clearErrors();
+      cleanErrors();
   };
 
   render() {
       const { error, errorText } = this.state;
-      const isLoggedIn = this.props.user.hasOwnProperty('token');
+      const { auth } = this.props;
+      const isLoggedIn = auth.user.hasOwnProperty('token');
       if (isLoggedIn) {
           return <Redirect to={'/'} />
       } else {
           return (
               <Fragment>
-                  {this.props.loading ? <Loading/> : <LoginForm handleSignIn={this.handleSignIn}/>}
-                  {error && <ErrorField>
-                      {errorText}
-                  </ErrorField>}
+                  {auth.loading ? <Loading/> : <LoginForm handleSignIn={this.handleSignIn}/>}
+                  {error && <ErrorField>{errorText}</ErrorField>}
+                  {auth.error && <ErrorField>{auth.errorText}</ErrorField>}
               </Fragment>
           );
       }
@@ -64,16 +65,14 @@ console.log(...obj);
 
 function mapStateToProps(state) {
     return {
-        user: state.auth.user,
-        loading: state.auth.loading,
-        error: state.auth.error,
-        errorText: state.auth.errorText,
+        ...state,
     }
 }
 
 function mapDispatchToProps(dispatch) {
     return {
         login: (email, pass) => dispatch(login(email, pass)),
+        cleanErrors: () => dispatch(cleanErrors()),
     }
 }
 
