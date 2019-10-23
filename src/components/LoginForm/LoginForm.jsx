@@ -30,7 +30,8 @@ export const LoginForm = (props) => {
                         <label htmlFor={style.email}>{emailFocus && 'Email'}
                         <div className={style.inputWrapper}>
                             <input onChange={event => setEmail(event.target.value)}
-                                   onFocus={() => setEmailFocus(!emailFocus)}
+                                   onFocus={() => setEmailFocus(true)}
+                                   onBlur={() => setEmailFocus(false)}
                                    name="email" type="text"
                                    placeholder="Email"
                                    value={email}
