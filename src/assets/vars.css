@@ -1,9 +1,12 @@
  /*Colors*/
 :root {
-    --main-color: #374859;
+    --main-color: rgba(37, 37, 41, 0.8);;
     --link-color: #73cff8;
     --link-secondary-color: #4d90fe;
     --font-color: #fff;
+    --font-color-secondary: #909192;
+    --header-color: #1A1A1B;
+    --overlay-color: rgba(37, 37, 41, 0.8);
 }
 
 .mainBgc {
@@ -26,16 +29,20 @@
  }
 
  .btn {
-     font-family: "Roboto", sans-serif;
-     background: var(--link-secondary-color);
-     color: var(--font-color);
-     text-transform: uppercase;
-     outline: 0;
-     width: 100%;
-     border: 0;
-     padding: 15px;
+     font-family: 'Open Sans', sans-serif;
+     font-style: normal;
+     font-weight: 600;
      font-size: 14px;
+     line-height: 20px;
+     text-align: center;
+     color: var(--font-color);
      cursor: pointer;
+     width: 350px;
+     height: 40px;
+     background: #E81C1C;
+     border-radius: 28px;
+     border: none;
+     outline: none;
  }
  .btn:hover,.btn:active {
      background: var(--link-color);

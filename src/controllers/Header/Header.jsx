@@ -5,6 +5,7 @@ import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 
 import {logout} from "actions/auth.action";
+import logo from '../../images/LOGO.png'
 
 
 class Header extends Component {
@@ -30,12 +31,15 @@ class Header extends Component {
 
     return (
       <header className={style.header}>
-        <div>LOGO</div>
+        <div className={style.logoWrapper}>
+          <img src={logo} alt="logo"/>
+        </div>
         <div className={style.buttonsWrapper}>
-           <Link onClick={isLoggedIn ? this.handleLogout : this.handleLogin}
-                         to={'/login'}
-                 className={style.btnSignIn}>
-                  {isLoggedIn ? 'Выйти' : 'Войти'}
+          <Link to={'#'} className={style.btnSignIn}>
+            Контакты
+          </Link>
+           <Link to={'/registration'} className={style.btnSignIn}>
+             Регистрация
            </Link>
         </div>
       </header>

@@ -4,18 +4,30 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
-  width: 100vw;
+  width: 100%;
   height: 10vh;
-  background-color: #374859;
-  padding: 0 10em;
+  background-color: var(--header-color);
+  padding: 0 60px;
+}
+.logoWrapper {
+  width: 73px;
+  height: 21px;
+}
+.logoWrapper img {
+  width: 100%;
 }
 .buttons-wrapper a:not(:last-child) {
   margin-right: 0.5em;
 }
 .btnSignIn {
-  composes: btn from "../../assets/vars.css";
+  font-weight: 600;
+  font-size: 14px;
+  line-height: 20px;
+  color: var(--font-color);
   text-decoration: none;
-  margin-right: 0.5em;
+}
+.btnSignIn:not(:last-child) {
+  margin-right: 5em;
 }
 .logout {
   composes: btn from "../../assets/vars.css";

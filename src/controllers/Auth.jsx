@@ -54,8 +54,8 @@ console.log(...obj);
       } else {
           return (
               <Fragment>
-                  {auth.loading ? <Loading/> : <LoginForm handleSignIn={this.handleSignIn}/>}
-                  {error && <ErrorField>{errorText}</ErrorField>}
+                  {auth.loading ? <Loading/> : <LoginForm isErrors={error} errors={errorText} handleSignIn={this.handleSignIn}/>}
+                  {/*{error && <ErrorField>{errorText}</ErrorField>}*/}
                   {auth.error && <ErrorField>{auth.errorText}</ErrorField>}
               </Fragment>
           );
