@@ -32,7 +32,7 @@ class Auth extends Component {
               error: false,
               errorText: '',
           });
-      }, 3000);
+      }, 5000);
   };
 
   handleSignIn = (...obj) => {
@@ -54,9 +54,14 @@ console.log(...obj);
       } else {
           return (
               <Fragment>
-                  {auth.loading ? <Loading/> : <LoginForm isErrors={error} errors={errorText} handleSignIn={this.handleSignIn}/>}
+                  {auth.loading ?
+                      <Loading/> :
+                      <LoginForm isErrors={error || auth.error}
+                                 errors={errorText}
+                                 serverError={auth.errorText}
+                                 handleSignIn={this.handleSignIn}/>}
                   {/*{error && <ErrorField>{errorText}</ErrorField>}*/}
-                  {auth.error && <ErrorField>{auth.errorText}</ErrorField>}
+                  {/*{auth.error && <ErrorField>{auth.errorText}</ErrorField>}*/}
               </Fragment>
           );
       }

@@ -58,5 +58,5 @@ export const registration = (...obj) => (dispatch) => {
 export const cleanErrors = () => (dispatch) => {
     setTimeout(() => {
         dispatch(clearErrors());
-    }, 3000);
+    }, 5000);
 };

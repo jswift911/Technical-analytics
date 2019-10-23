@@ -6,13 +6,14 @@ import React, { useState } from 'react';
 import {Link} from "react-router-dom";
 
 export const LoginForm = (props) => {
-    const [ username, setUsername ] = useState('');
+    const [ email, setEmail ] = useState('');
     const [ password, setPassword ] = useState('');
     const [ type, setType ] = useState(false);
+    const [ emailFocus, setEmailFocus ] = useState(false);
 
     const handlerSignIn = () => {
-        props.handleSignIn({username, password});
-        setUsername('');
+        props.handleSignIn({email: email, password});
+        setEmail('');
         setPassword('');
     };
 
@@ -26,12 +27,13 @@ export const LoginForm = (props) => {
                 <div className={style.form}>
                     <div className={style.loginForm}>
                         <header className={style.header}>вход</header>
-                        <label htmlFor={style.email}>Email
+                        <label htmlFor={style.email}>{emailFocus && 'Email'}
                         <div className={style.inputWrapper}>
-                            <input onChange={event => setUsername(event.target.value)}
-                                   name="username" type="text"
+                            <input onChange={event => setEmail(event.target.value)}
+                                   onFocus={() => setEmailFocus(!emailFocus)}
+                                   name="email" type="text"
                                    placeholder="Email"
-                                   value={username}
+                                   value={email}
                                    id={style.email}/>
                         </div>
                         </label>
@@ -59,7 +61,9 @@ export const LoginForm = (props) => {
                             </span>
                         </div>
                         <button onClick={() => handlerSignIn()} className={style.loginBtn}>войти</button>
-                        <div className={style.errorField}>{props.isErrors && props.errors}</div>
+                        <div className={style.errorField}>
+                            {props.isErrors && props.errors || props.serverError}
+                        </div>
                     </div>
                     <div className={style.regField}>
                         <span>Первый раз на сайте?

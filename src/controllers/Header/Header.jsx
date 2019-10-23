@@ -14,13 +14,6 @@ class Header extends Component {
 
   }
 
-  handleLogin = () => {
-    const { logout, isLoggedIn } = this.props;
-    if (isLoggedIn) {
-      // logout();
-    }
-  };
-
   handleLogout = () => {
     this.props.logout();
   };
@@ -38,8 +31,10 @@ class Header extends Component {
           <Link to={'#'} className={style.btnSignIn}>
             Контакты
           </Link>
-           <Link to={'/registration'} className={style.btnSignIn}>
-             Регистрация
+           <Link onClick={isLoggedIn && this.handleLogout}
+                         to={'/login'}
+                 className={style.btnSignIn}>
+                  {isLoggedIn ? 'Выйти' : 'Войти'}
            </Link>
         </div>
       </header>

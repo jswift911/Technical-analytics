@@ -9,7 +9,7 @@ export function validator(obj) {
             return false;
         }
 
-        if (obj[key] && key === 'username' && !regExp.test(obj[key])) {
+        if (obj[key] && key === 'email' && !regExp.test(obj[key])) {
             this.setState({
                 error: true,
                 errorText: 'Невалидный email',
