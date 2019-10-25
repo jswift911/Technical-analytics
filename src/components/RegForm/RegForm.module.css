@@ -1,5 +1,10 @@
 .overlay {
-    composes: overlay from '../LoginForm/LoginForm.module.css';
+    background: var(--overlay-color);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 .formList {
     width: 100%;
@@ -37,7 +42,7 @@
     outline: none;
     background-color: inherit;
     color: #909192;
-    width: 80%;
+    width: 90%;
 }
 .form {
     padding: 2.1875rem 3.625rem;
@@ -108,4 +113,15 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+}
+.errorField {
+    font-style: normal;
+    font-weight: normal;
+    font-size: 14px;
+    line-height: 40px;
+    color: var(--btn-color);
+    height: 20px;
+    text-align: center;
+    width: 100%;
+    margin-top: 1rem;
 }

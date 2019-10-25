@@ -1,130 +1,40 @@
 .overlay {
-    background: var(--overlay-color);
-    width: 100%;
-    height: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    composes: overlay from '../RegForm/RegForm.module.css';
 }
 .loginPage {
-    width: 788px;
-    height: 541px;
-    background: var(--main-color);
-    border: 1px solid #7B7B7B;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 14px;
-    display: flex;
-    justify-content: flex-end;
-    background-position: center center;
-    background-repeat: no-repeat;
-    background-size: cover;
+    composes: regPage from '../RegForm/RegForm.module.css';
 }
-.form {
-    box-sizing: border-box;
-    width: 60%;
-    height: 100%;
-    background-color: #252529;
-    border-right: 1px solid #7B7B7B;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-top-right-radius: 14px;
-    border-bottom-right-radius: 14px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
+.loginPage__rightSide {
+    composes: regPage__rightSide from '../RegForm/RegForm.module.css';
 }
 .loginForm {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
-    width: 351px;
+    composes: form from '../RegForm/RegForm.module.css';
 }
 .header {
-    font-style: normal;
-    font-weight: 600;
-    font-size: 32px;
-    line-height: 42px;
-    color: var(--font-color);
-    text-transform: uppercase;
-    margin-bottom: 20px;
+    composes: header from '../RegForm/RegForm.module.css';
+}
+.formList {
+    composes: formList from '../RegForm/RegForm.module.css';
+}
+.formListItem {
+    composes: formListItem from '../RegForm/RegForm.module.css';
 }
 .inputWrapper {
-    width: 351px;
-    height: 48px;
-    background-color: #F0F0F5;
-    border-radius: 4px;
+   composes: controlWrapper from '../RegForm/RegForm.module.css';
+}
+#password {
     display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    box-sizing: border-box;
-    margin-top: 8px;
-}
-.inputWrapper:last-child {
     justify-content: space-between;
+    align-items: center;
 }
-label {
-    margin-bottom: 10px;
+.errorField {
+    composes: errorField from '../RegForm/RegForm.module.css';
 }
 
-.errorField {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 40px;
-    color: #E81C1C;
-    height: 20px;
-    text-align: center;
-    width: 100%;
-    margin-top: 1rem;
-}
-#email,
-#password {
-    font-style: normal;
-    font-weight: normal;
-    font-size: 14px;
-    line-height: 20px;
-    color: #909192;
-    margin: 0 0 0 1rem;
-    padding: 0;
-    outline: none;
-    border: none;
-    box-sizing: border-box;
-    height: 20px;
-    background-color: inherit;
-}
-#email {
-    width: 319px;
-}
-#password {
-    width: 287px;
-}
-.svg {
-    fill: #909192;
-    width: 22px;
-    margin-right: 9px;
-    cursor: pointer;
-}
 .loginBtn {
     composes: btn from "../../assets/vars.css";
-    text-transform: capitalize;
+    margin-top: 50px;
 }
-.regField span,
-.regField a {
-    font-style: normal;
-    font-size: 14px;
-    line-height: 20px;
-    color: #FFFFFF;
-}
-.regField span {
-    font-weight: normal;
-}
-.regField a {
-    font-weight: 600;
-}
-
-.link {
-    text-decoration: none;
-    font-size: small;
-    color: var(--link-secondary-color);
+.regField {
+    composes: regField from '../RegForm/RegForm.module.css';
 }

@@ -1,36 +1,15 @@
  /*Colors*/
 :root {
-    --main-color: rgba(37, 37, 41, 0.8);;
-    --link-color: #73cff8;
-    --link-secondary-color: #4d90fe;
+    --main-color: rgba(37, 37, 41, 0.8);
     --font-color: #fff;
     --font-color-secondary: #909192;
     --header-color: #1A1A1B;
     --overlay-color: rgba(37, 37, 41, 0.8);
     --background-color: #252529;
     --hover-color: #C12424;
+    --btn-color: #E81C1C;
 }
-
-.mainBgc {
-    color: #374859;
-}
-.mainColor {
-    color: #374859;
-}
-.linkColor {
-    color: #73cff8;
-}
-.linkBgc {
-    background-color: #73cff8;
-}
-.fontColor {
-    color: #fff;
-}
- .fontBgc {
-     background-color: #fff;
- }
-
- .btn {
+.btn {
      font-family: 'Open Sans', sans-serif;
      font-style: normal;
      font-weight: 600;
@@ -41,12 +20,12 @@
      cursor: pointer;
      width: 350px;
      height: 40px;
-     background: #E81C1C;
+     background: var(--btn-color);
      border-radius: 28px;
      border: none;
      outline: none;
      text-transform: capitalize;
  }
- .btn:hover,.btn:active {
+.btn:hover,.btn:active {
      background: var(--hover-color);
  }

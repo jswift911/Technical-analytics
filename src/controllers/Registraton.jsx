@@ -8,6 +8,7 @@ import { Loading } from "components/Loading";
 import { validator } from "functions/validator";
 import { cleanErrors, registration } from 'actions/auth.action'
 import { Redirect } from "react-router-dom";
+import {LoginForm} from "components/LoginForm/LoginForm";
 
 let timer;
 
@@ -32,7 +33,8 @@ class Registration extends Component {
 
     handleSubmit = (...args) => {
         if (validator.apply(this, [...args])) {
-            this.props.registration(...args);
+            alert('Сервер на доработке под новые данные');
+            // this.props.registration(...args);
         }
         this.clearErrors();
         this.props.cleanErrors();
@@ -48,9 +50,17 @@ class Registration extends Component {
         } else {
             return(
                 <Fragment>
-                    {auth.loading ? <Loading/> : <RegForm handleSubmit={this.handleSubmit} />}
-                    {error && <ErrorField>{errorText}</ErrorField>}
-                    {auth.error && <ErrorField>{auth.errorText}</ErrorField>}
+                    {
+                        auth.loading
+                            ?
+                            <Loading/>
+                            :
+                            <RegForm
+                                isErrors={error || auth.error}
+                                errors={errorText}
+                                serverError={auth.errorText}
+                                handleSubmit={this.handleSubmit} />
+                    }
                 </Fragment>
             );
         }

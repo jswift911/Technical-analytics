@@ -47,7 +47,8 @@ export const RegForm = (props) => {
                                            onFocus={() => setCompanyFocus(true)}
                                            onBlur={() => setCompanyFocus(false)}
                                            name="organization" type="text"
-                                           placeholder={companyFocus ? '' : "Название компании"} value={organization} id="organization"/>
+                                           placeholder={companyFocus ? '' : "Название компании"}
+                                           value={organization} id="organization"/>
                                 </div>
                             </li>
                             <li className={style.formListItem}>
@@ -102,7 +103,8 @@ export const RegForm = (props) => {
                                            onBlur={() => setRepeatPasswordFocus(false)}
                                            name="repeatPassword"
                                            type={!repeatPasswordType ? 'password' : 'text'}
-                                           placeholder={repeatPassword ? '' : 'Повторите пароль'} value={repeatPassword} />
+                                           placeholder={repeatPassword ? '' : 'Повторите пароль'}
+                                           value={repeatPassword} />
                                     <div onClick={() => setRepeatPasswordType(!repeatPasswordType)}>
                                         {!repeatPasswordType ? closeEye : eye}
                                     </div>
@@ -115,10 +117,13 @@ export const RegForm = (props) => {
                             </span>
                         </div>
                         <button className={style.regBtn} onClick={() => handleSubmit()}>регистрация</button>
+                        <div className={style.errorField}>
+                            {props.isErrors && props.errors || props.serverError}
+                        </div>
                         <div className={style.regField}>
-                        <span>Уже зарегистрированы?
-                            <Link className={style.link} to={'/login'}> Войти</Link>
-                        </span>
+                            <span>Уже зарегистрированы?
+                                <Link className={style.link} to={'/login'}> Войти</Link>
+                            </span>
                         </div>
                     </div>
                 </div>
