@@ -5,12 +5,12 @@
   align-items: center;
   box-sizing: border-box;
   width: 100%;
-  height: 10vh;
+  height: 60px;
   background-color: var(--header-color);
   padding: 0 60px;
 }
 .logoWrapper {
-  width: 73px;
+  width: 112px;
   height: 21px;
 }
 .logoWrapper img {

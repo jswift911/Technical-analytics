@@ -7,6 +7,8 @@
     --font-color-secondary: #909192;
     --header-color: #1A1A1B;
     --overlay-color: rgba(37, 37, 41, 0.8);
+    --background-color: #252529;
+    --hover-color: #C12424;
 }
 
 .mainBgc {
@@ -43,7 +45,8 @@
      border-radius: 28px;
      border: none;
      outline: none;
+     text-transform: capitalize;
  }
  .btn:hover,.btn:active {
-     background: var(--link-color);
+     background: var(--hover-color);
  }

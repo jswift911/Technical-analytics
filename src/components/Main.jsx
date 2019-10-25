@@ -3,6 +3,7 @@ import {Link} from "react-router-dom";
 import {Loading} from "components/Loading";
 import {cleanErrors, login} from "actions/auth.action";
 import {connect} from "react-redux";
+import { Redirect } from "react-router-dom";
 
 const Main = (props) => {
     const style = {
@@ -18,6 +19,7 @@ const Main = (props) => {
     };
     const { auth } = props;
     const isLoggedIn = auth.user.hasOwnProperty('token');
+    if (!isLoggedIn) return <Redirect to={'/login'} />;
     return (
         <div style={style}>
             <h2>Добро пожаловать в приложение Technical Analytics</h2>

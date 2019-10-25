@@ -4,7 +4,6 @@ import { connect } from 'react-redux';
 import { LoginForm } from "components/LoginForm/LoginForm";
 import {cleanErrors, login} from "actions/auth.action";
 import { Loading } from "components/Loading";
-import { ErrorField } from "components/ErrorField";
 import { Redirect } from "react-router-dom";
 import { validator} from "functions/validator";
 //TODO убрать глобальную переменную и сделать валидацию на лету
@@ -37,9 +36,9 @@ class Auth extends Component {
 
   handleSignIn = (...obj) => {
       const { login, cleanErrors } = this.props;
-console.log(...obj);
+
       if (validator.apply(this, [...obj])) {
-          login(obj[0].username, obj[0].password);
+          login(obj[0].email, obj[0].password);
       }
       this.clearErrors();
       cleanErrors();
@@ -60,8 +59,6 @@ console.log(...obj);
                                  errors={errorText}
                                  serverError={auth.errorText}
                                  handleSignIn={this.handleSignIn}/>}
-                  {/*{error && <ErrorField>{errorText}</ErrorField>}*/}
-                  {/*{auth.error && <ErrorField>{auth.errorText}</ErrorField>}*/}
               </Fragment>
           );
       }

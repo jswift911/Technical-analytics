@@ -1,17 +1,14 @@
 html {
   font-family: 'Open Sans', sans-serif;
   color: var(--font-color);
+  background-color: var(--background-color);
 }
-
 .app {
-  width: 100vw;
-  height: 100vh;
+  max-width: 1440px;
+  margin: 0 auto;
 }
-
 .main {
   display: flex;
-  height: calc(100vh - 10vh);
-  overflow: hidden;
   box-sizing: border-box;
   background-color: var(--main-color);
   background-repeat: no-repeat;

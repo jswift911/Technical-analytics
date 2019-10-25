@@ -1,9 +1,103 @@
+.overlay {
+    composes: overlay from '../LoginForm/LoginForm.module.css';
+}
+.formList {
+    width: 100%;
+}
+.header {
+    font-weight: 600;
+    font-size: 2rem;
+    line-height: 2.625rem;
+    text-transform: uppercase;
+    color: var(--font-color);
+    margin-bottom: 1.25rem;
+}
+.formListItem {
+    list-style-type: none;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    height: 4.075rem;
+}
+.formListItem:not(:last-child) {
+    margin: 0 0 0.875rem 0;
+}
+.formListItem label {
+    margin: 0 0 0.5rem;
+    font-size: 0.75rem;
+}
+.controlWrapper {
+    background-color: #F0F0F5;
+    padding: 0.875rem 1rem;
+    border-radius: 4px;
+}
+.controlWrapper input {
+    font-size: 0.875rem;
+    border: none;
+    outline: none;
+    background-color: inherit;
+    color: #909192;
+    width: 80%;
+}
+.form {
+    padding: 2.1875rem 3.625rem;
+    box-sizing: border-box;
+}
 .regBtn {
     composes: btn from '../../assets/vars.css';
 }
 .regPage {
-    composes: loginPage from '../LoginForm/LoginForm.module.css';
+    width: 788px;
+    border: 1px solid #7B7B7B;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 14px;
+    display: flex;
+    justify-content: flex-end;
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
-.form {
-    composes: form from '../LoginForm/LoginForm.module.css';
+.regPage__rightSide {
+    box-sizing: border-box;
+    width: 60%;
+    height: 100%;
+    background-color: #252529;
+    border-right: 1px solid #7B7B7B;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-top-right-radius: 14px;
+    border-bottom-right-radius: 14px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.policy {
+    margin: 2.25rem 0 0.625rem;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 0.75rem;
+    line-height: 1rem;
+}
+.policy a {
+    text-decoration: none;
+    color: inherit;
+}
+.regField {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+.regField span,
+.regField a {
+    font-style: normal;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    color: var(--font-color);
+}
+.regField span {
+    font-weight: normal;
+}
+.regField a {
+    font-weight: 600;
+    text-decoration: none;
 }
