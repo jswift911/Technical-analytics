@@ -1,9 +1,11 @@
 import style from './RegForm.module.css';
 
 import React, { useState } from 'react';
+import {Link} from "react-router-dom";
 
 import bg from '../../images/BG.webp'
-import {Link} from "react-router-dom";
+import { closeEye, eye } from "../../images/eyes";
+
 
 export const RegForm = (props) => {
     const [ organization, setOrganization ] = useState('');
@@ -18,6 +20,8 @@ export const RegForm = (props) => {
     const [ passwordFocus, setPasswordFocus ] = useState(false);
     const [ repeatPassword, setRepeatPassword ] = useState('');
     const [ repeatPasswordFocus, setRepeatPasswordFocus ] = useState(false);
+    const [ passwordType, setPasswordType ] = useState(false);
+    const [ repeatPasswordType, setRepeatPasswordType ] = useState(false);
 
     const handleSubmit = () => {
         props.handleSubmit({email, password, repeatPassword, phone, name, organization});
@@ -78,22 +82,30 @@ export const RegForm = (props) => {
                             </li>
                             <li className={style.formListItem}>
                                 <label htmlFor="password">{passwordFocus && 'Пароль'}</label>
-                                <div className={style.controlWrapper}>
+                                <div className={style.controlWrapper} id={style.password}>
                                     <input onChange={event => setPassword(event.target.value)}
                                            onFocus={() => setPasswordFocus(true)}
                                            onBlur={() => setPasswordFocus(false)}
-                                           name="password" type="password"
+                                           name="password"
+                                           type={!passwordType ? 'password' : 'text'}
                                            placeholder={passwordFocus ? '' : 'Пароль'} value={password} />
+                                    <div onClick={() => setPasswordType(!passwordType)}>
+                                        {!passwordType ? closeEye : eye}
+                                    </div>
                                 </div>
                             </li>
                             <li className={style.formListItem}>
                                 <label htmlFor="repeatPassword">{repeatPasswordFocus && 'Повторите пароль'}</label>
-                                <div className={style.controlWrapper}>
+                                <div className={style.controlWrapper} id={style.repeatPassword}>
                                     <input onChange={event => setRepeatPassword(event.target.value)}
                                            onFocus={() => setRepeatPasswordFocus(true)}
                                            onBlur={() => setRepeatPasswordFocus(false)}
-                                           name="repeatPassword" type="password"
+                                           name="repeatPassword"
+                                           type={!repeatPasswordType ? 'password' : 'text'}
                                            placeholder={repeatPassword ? '' : 'Повторите пароль'} value={repeatPassword} />
+                                    <div onClick={() => setRepeatPasswordType(!repeatPasswordType)}>
+                                        {!repeatPasswordType ? closeEye : eye}
+                                    </div>
                                 </div>
                             </li>
                         </ul>

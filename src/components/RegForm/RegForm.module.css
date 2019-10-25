@@ -56,6 +56,8 @@
     background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
+    margin-top: 6.0625rem;
+    margin-bottom: 9.875rem;
 }
 .regPage__rightSide {
     box-sizing: border-box;
@@ -100,4 +102,10 @@
 .regField a {
     font-weight: 600;
     text-decoration: none;
+}
+#password,
+#repeatPassword {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }

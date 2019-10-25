@@ -10,14 +10,9 @@ html {
 .main {
   display: flex;
   box-sizing: border-box;
-  background-color: var(--main-color);
   background-repeat: no-repeat;
   background-position: center center;
   background-size: cover;
   justify-content: center;
   align-items: center;
-}
-
-.content {
-  /*grid-area: content;*/
 }
