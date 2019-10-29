@@ -58,7 +58,7 @@ export const RegForm = (props) => {
                                            onFocus={() => setNameFocus(true)}
                                            onBlur={() => setNameFocus(false)}
                                            name="name" type="text"
-                                           placeholder={nameFocus ? '' : 'Ваше имя и фамилия'} value={name} />
+                                           placeholder={nameFocus ? '' : 'Ваши имя и фамилия'} value={name} />
                                 </div>
                             </li>
                             <li className={style.formListItem}>
