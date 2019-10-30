@@ -25,7 +25,7 @@ class Header extends Component {
     return (
       <header className={style.header}>
         <div className={style.logoWrapper}>
-          <img src={logo} alt="logo"/>
+            <a href="/"><img src={logo} alt="logo"/></a>
         </div>
         <div className={style.buttonsWrapper}>
           <Link to={'#'} className={style.btnSignIn}>

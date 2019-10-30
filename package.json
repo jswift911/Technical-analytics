@@ -1,7 +1,7 @@
 {
   "name": "roadapp",
   "version": "1.0.0",
-  "description": "",
+  "description": "Сначала необходимо склонировать проект к себе на компьютер, для этого открываем терминал (в IDE или OS)\r ```bash\r $ git clone https://github.com/AlexeyKobevko/Technical-analytics.git\r ```\r Далее в териминале переходим в корень проекта и запускаем установку зависимостей:\r ```bash\r $ npm i\r ```\r После скачивания пакетов необходимо запустить скрипт, который соберёт приложение и запустит его на локальном дев-сервере:\r ```bash\r $ npm start\r ```",
   "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
@@ -42,5 +42,13 @@
     "webpack": "^4.32.2",
     "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.7.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AlexeyKobevko/Technical-analytics.git"
+  },
+  "bugs": {
+    "url": "https://github.com/AlexeyKobevko/Technical-analytics/issues"
+  },
+  "homepage": "https://github.com/AlexeyKobevko/Technical-analytics#readme"
 }

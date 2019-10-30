@@ -13,23 +13,32 @@
   width: 112px;
   height: 21px;
 }
-.logoWrapper img {
-  width: 100%;
-}
+
+/*.logoWrapper img {*/
+/*  width: 100%;*/
+/*}*/
+
 .buttons-wrapper a:not(:last-child) {
   margin-right: 0.5em;
 }
 .btnSignIn {
   font-weight: 600;
-  font-size: 14px;
+  font-size: 0.9em;
   line-height: 20px;
   color: var(--font-color);
   text-decoration: none;
 }
 .btnSignIn:not(:last-child) {
-  margin-right: 5em;
+  margin: 5em 2em;
 }
 .logout {
   composes: btn from "../../assets/vars.css";
   width: inherit;
+}
+
+@media screen and (min-width: 375px) {
+  .logoWrapper a img {
+    width: 100px;
+    height: 22px;
+  }
 }
