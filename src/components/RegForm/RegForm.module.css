@@ -125,3 +125,61 @@
     width: 100%;
     margin-top: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+
+}
+
+@media screen and (max-width: 667px) {
+    .regPage__rightSide {
+        width: 100%;
+    }
+    .regPage {
+        margin-top: 3.063rem;
+    }
+}
+
+@media screen and (max-width: 375px) {
+    .regPage__rightSide {
+        width: 100%;
+    }
+    .regPage {
+        margin-top: 3.063rem;
+    }
+}
+
+@media screen and (max-height: 375px) {
+    .regPage__rightSide {
+        width: 100%;
+    }
+    .regPage {
+        margin-top: 0;
+    }
+    .header {
+        line-height: 0;
+    }
+    .regField {
+        margin-top: 0;
+    }
+    .errorField {
+        margin-top: 0;
+    }
+}
+
+@media screen and (max-height: 414px) {
+    .regPage__rightSide {
+        width: 100%;
+    }
+    .regPage {
+        margin-top: 0;
+    }
+    .header {
+        line-height: 0;
+    }
+    .regField {
+        margin-top: 0;
+    }
+    .errorField {
+        margin-top: 0;
+    }
+}

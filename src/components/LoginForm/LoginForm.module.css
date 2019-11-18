@@ -38,3 +38,9 @@
 .regField {
     composes: regField from '../RegForm/RegForm.module.css';
 }
+
+@media screen and (max-height: 375px) {
+    .loginBtn {
+        margin-top: 5%;
+    }
+}

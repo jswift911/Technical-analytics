@@ -1,5 +1,6 @@
 export function validator(obj) {
-    const regExp = /(^\w.*@\w+\.\w)/;
+    const regExpMail = /(^\w.*@\w+\.\w)/;
+    const regExpPhone = /^\+?[78][-\(]?\d{3}\)?-?\d{3}-?\d{2}-?\d{2}$/;
     for (let key in obj) {
         if (obj[key].length === 0) {
             this.setState({
@@ -9,7 +10,7 @@ export function validator(obj) {
             return false;
         }
 
-        if (obj[key] && key === 'email' && !regExp.test(obj[key])) {
+        if (obj[key] && key === 'email' && !regExpMail.test(obj[key])) {
             this.setState({
                 error: true,
                 errorText: 'Невалидный email',
@@ -27,6 +28,13 @@ export function validator(obj) {
             this.setState({
                 error: true,
                 errorText: 'Пароли не совпадают',
+            });
+            return false;
+        }
+        if (obj[key] && key === 'phone' && !regExpPhone.test(obj[key])) {
+            this.setState({
+                error: true,
+                errorText: 'Неверно указан номер телефона',
             });
             return false;
         }
